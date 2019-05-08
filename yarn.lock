@@ -5476,7 +5476,7 @@ remark-heading-gap@^3.0.0:
   resolved "https://registry.yarnpkg.com/remark-heading-gap/-/remark-heading-gap-3.1.0.tgz#6a1851b4226fa82441ae1365bbd599d34b12d812"
   integrity sha512-KxH9CTgfDnVTZVMMLJRw73zxZSWGX+p6x/trG7ed2UsEYqMRr8Dqtu/SXp2vD1ZZhPM8CpS7SjS+qjmiaRFotw==
 
-"remark-license@github:niftylettuce/remark-license":
+remark-license@niftylettuce/remark-license:
   version "4.0.1"
   resolved "https://codeload.github.com/niftylettuce/remark-license/tar.gz/17ecb8f64f8f6082414d14f9267a12764e6ddbfb"
   dependencies:
