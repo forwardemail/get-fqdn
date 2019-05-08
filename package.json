@@ -1,0 +1,133 @@
+{
+  "name": "get-fqdn",
+  "description": "Lookup the fully qualified domain name (\"FQDN\") of the current server's IP (default) or a custom IP.  90x faster than `hostname -f` and works with Node v6.4+.",
+  "version": "0.0.0",
+  "author": "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)",
+  "ava": {
+    "failFast": true,
+    "verbose": true
+  },
+  "bugs": {
+    "url": "https://github.com/niftylettuce/get-fqdn/issues",
+    "email": "niftylettuce@gmail.com"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "contributors": [
+    "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)"
+  ],
+  "dependencies": {
+    "ip": "^1.1.5",
+    "universalify": "^0.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "ava": "latest",
+    "codecov": "latest",
+    "cross-env": "latest",
+    "eslint": "latest",
+    "eslint-config-xo-lass": "latest",
+    "eslint-plugin-node": "^8.0.1",
+    "fixpack": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "nyc": "latest",
+    "remark-cli": "latest",
+    "remark-preset-github": "latest",
+    "rimraf": "latest",
+    "xo": "latest"
+  },
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/niftylettuce/get-fqdn",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": [
+    "address",
+    "dns",
+    "domain",
+    "domains",
+    "fetch",
+    "fqdn",
+    "fully",
+    "get",
+    "host",
+    "hostname",
+    "hostnames",
+    "ip",
+    "ipv4",
+    "ipv6",
+    "lookup",
+    "machine",
+    "name",
+    "os",
+    "qualifie",
+    "qualified",
+    "qualify"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "xo --fix",
+        "git add"
+      ],
+      "*.md": [
+        "remark . -qfo",
+        "git add"
+      ],
+      "package.json": [
+        "fixpack",
+        "git add"
+      ]
+    }
+  },
+  "main": "lib/index.js",
+  "prettier": {
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "trailingComma": "none"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-github"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niftylettuce/get-fqdn"
+  },
+  "scripts": {
+    "ava": "cross-env NODE_ENV=test ava",
+    "build": "npm run build:clean && npm run build:lib",
+    "build:clean": "rimraf lib",
+    "build:lib": "babel src --out-dir lib",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "xo && remark . -qfo && eslint lib",
+    "nyc": "cross-env NODE_ENV=test nyc ava",
+    "test": "npm run build && npm run lint && npm run ava",
+    "test-coverage": "npm run build && npm run lint && npm run nyc"
+  },
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "extends": [
+      "xo-lass"
+    ]
+  }
+}
