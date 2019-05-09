@@ -2,13 +2,16 @@ const os = require('os');
 const dns = require('dns');
 const universalify = require('universalify');
 
-const lookup = universalify.fromCallback(dns.lookup);
-const lookupService = universalify.fromCallback(dns.lookupService);
+function getFQDN(ip, fn) {
+  if (typeof ip === 'function') {
+    fn = ip;
+    return dns.lookup(os.hostname(), { hints: dns.ADDRCONFIG }, (err, ip) => {
+      if (err) return fn(err);
+      getFQDN(ip, fn);
+    });
+  }
 
-async function getFQDN(ip) {
-  if (!ip) ip = await lookup(os.hostname(), { hints: dns.ADDRCONFIG });
-  const fqdn = await lookupService(ip, 0);
-  return fqdn;
+  dns.lookupService(ip, 0, fn);
 }
 
-module.exports = universalify.fromPromise(getFQDN);
+module.exports = universalify.fromCallback(getFQDN);

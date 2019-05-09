@@ -22,7 +22,6 @@ test('throws error with local IP lookup', async t => {
 
 test.cb('callback throws error with local IP lookup', t => {
   getFQDN(err => {
-    t.log(err);
     t.regex(err.message, /getnameinfo ENOTFOUND/);
     t.end();
   });
