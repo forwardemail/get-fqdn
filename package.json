@@ -41,7 +41,6 @@
     "remark-cli": "^6.0.1",
     "remark-preset-github": "^0.0.13",
     "rimraf": "^2.6.3",
-    "validator": "^10.11.0",
     "xo": "^0.24.0"
   },
   "engines": {

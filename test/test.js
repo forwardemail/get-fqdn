@@ -1,6 +1,5 @@
 const test = require('ava');
 const isCI = require('is-ci');
-const { isFQDN } = require('validator');
 
 const getFQDN = require('..');
 
@@ -19,14 +18,12 @@ test.cb('callback returns FQDN', t => {
 
 if (isCI) {
   test('does not throw  error with local IP lookup', async t => {
-    const fqdn = await getFQDN();
-    t.true(isFQDN(fqdn));
+    await t.notThrowsAsync(getFQDN);
   });
 
   test.cb('callback does not throw error with local IP lookup', t => {
-    getFQDN((err, fqdn) => {
+    getFQDN(err => {
       t.is(err, null);
-      t.true(isFQDN(fqdn));
       t.end();
     });
   });
