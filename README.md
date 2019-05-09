@@ -67,8 +67,6 @@ const fqdn = await getFQDN('1.1.1.1');
 console.log('fqdn', fqdn);
 ```
 
-The default IP address if not passed is set to the value returned from [ip][] package's `ip.address()` method):
-
 
 ## Performance
 
@@ -124,7 +122,5 @@ shelljs with hostname -f: 88.311ms
 [npm]: https://www.npmjs.com/
 
 [yarn]: https://yarnpkg.com/
-
-[ip]: https://github.com/indutny/node-ip
 
 [fqdn]: https://github.com/opentable/fqdn-nodejs

@@ -1,11 +1,13 @@
+const os = require('os');
 const dns = require('dns');
 const universalify = require('universalify');
-const ip = require('ip');
 
+const lookup = universalify.fromCallback(dns.lookup);
 const lookupService = universalify.fromCallback(dns.lookupService);
 
-async function getFQDN(address = ip.address()) {
-  const fqdn = await lookupService(address, 0);
+async function getFQDN(ip) {
+  if (!ip) ip = await lookup(os.hostname(), { hints: dns.ADDRCONFIG });
+  const fqdn = await lookupService(ip, 0);
   return fqdn;
 }
 
