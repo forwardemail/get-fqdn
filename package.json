@@ -19,7 +19,7 @@
     "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)"
   ],
   "dependencies": {
-    "universalify": "^0.1.2"
+    "universalify": "^0.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
