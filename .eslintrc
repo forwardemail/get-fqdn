@@ -1,7 +1,0 @@
-{
-  "extends": ["eslint:recommended", "plugin:node/recommended"],
-  "rules": {
-    "no-func-assign": "off",
-    "no-unused-vars": "off"
-  }
-}
