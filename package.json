@@ -1,7 +1,7 @@
 {
   "name": "get-fqdn",
   "description": "Lookup the fully qualified domain name (\"FQDN\") of the current server's IP (default) or a custom IP.  90x faster than `hostname -f` and works with Node v6.4+.",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "author": "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)",
   "bugs": {
     "url": "https://github.com/forwardemail/get-fqdn/issues",
